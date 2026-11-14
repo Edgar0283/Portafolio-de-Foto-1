@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luz y Devoción — Edgar G. | Proyecto Fotográfico de Autor</title>
+<style>
+/* ═════ VARIABLES ═════ */
+:root{--blue:#549fe4;--gray:#424242;--black:#0a0a0a;--card:#141414;--white:#f4f4f4;--dim:rgba(244,244,244,.62);--line:rgba(255,255,255,.09);--r:22px;
+--font:"Helvetica Neue",Helvetica,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--font);font-weight:300;line-height:1.7;overflow-x:hidden}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;position:relative;z-index:1}
+section{position:relative;padding:130px 0;overflow:hidden}
+/* ═════ TIPOGRAFÍA ═════ */
+.tag{font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--blue);display:flex;gap:14px;align-items:center;margin-bottom:26px}
+.tag::after{content:"";height:1px;width:56px;background:var(--blue);opacity:.5}
+h1,h2{font-weight:700;letter-spacing:-.03em;line-height:.98}
+h1{font-size:clamp(3.4rem,11vw,9.5rem)}
+h2{font-size:clamp(2.2rem,5vw,4rem);margin-bottom:34px}
+h1 em,h2 em{font-style:normal;font-weight:200;color:var(--blue)}
+p{color:var(--dim);margin-bottom:18px;max-width:560px}
+b.w{color:#fff;font-weight:600}
+.glow{position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(84,159,228,.16),transparent 65%);filter:blur(40px);pointer-events:none;z-index:0}
+/* ═════ NAV ═════ */
+nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 36px;transition:.4s}
+nav.s{background:rgba(10,10,10,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+nav b{font-weight:700;letter-spacing:.2em;font-size:13px}
+nav ul{display:flex;gap:26px;list-style:none}
+nav li a{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);transition:.2s}
+nav li a:hover{color:var(--white)}
+.burger{display:none;background:none;border:0;color:var(--white);font-size:26px;cursor:pointer;z-index:60}
+/* ═════ 01 PORTADA ═════ */
+.cover{height:100svh;min-height:620px;display:flex;align-items:flex-end;padding:0 0 90px}
+.cover .bg{position:absolute;inset:0}
+.cover .bg img{animation:zoom 14s ease-out forwards;transform:scale(1.08)}
+.cover .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#0a0a0a 4%,rgba(10,10,10,.45) 55%,rgba(10,10,10,.7)),linear-gradient(100deg,rgba(84,159,228,.22),transparent 55%)}
+@keyframes zoom{to{transform:scale(1)}}
+.cover .sub{font-size:clamp(1rem,2vw,1.35rem);color:var(--dim);margin:26px 0 38px;max-width:520px}
+.meta{display:flex;gap:40px;flex-wrap:wrap;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:36px}
+.meta b{display:block;color:var(--white);font-weight:600;letter-spacing:.05em;font-size:15px;text-transform:none}
+.btn{display:inline-flex;gap:12px;align-items:center;background:var(--blue);color:#06121f;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:16px 30px;border-radius:99px;transition:.3s}
+.btn:hover{background:#fff;transform:translateY(-3px);box-shadow:0 14px 44px rgba(84,159,228,.45)}
+/* ═════ 02 DECLARACIÓN ═════ */
+.two{display:grid;grid-template-columns:5fr 6fr;gap:90px;align-items:center}
+.photo{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.55),transparent 45%),linear-gradient(135deg,rgba(84,159,228,.15),transparent 60%)}
+p.quote{font-size:clamp(1.25rem,2.3vw,1.8rem);font-weight:300;line-height:1.4;color:var(--white);max-width:none;letter-spacing:-.01em;margin-bottom:26px}
+.sign{font-weight:700;letter-spacing:.06em;color:var(--white)}
+/* ═════ 03 / 04 ═════ */
+.alt{background:var(--card)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.refs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px}
+.ref{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:var(--r);padding:32px 28px;transition:.4s;backdrop-filter:blur(8px)}
+.ref:hover{border-color:rgba(84,159,228,.4);transform:translateY(-6px);background:rgba(84,159,228,.06)}
+.ref h3{font-size:1.2rem;font-weight:600;margin:6px 0 0}
+.ref small{color:var(--blue);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.ref p{font-size:14px;margin:14px 0 0}
+/* ═════ 05+ SERIE ═════ */
+.intro-s{text-align:center}
+.intro-s p{margin:0 auto 18px}
+.intro-s .tag,.final .tag{justify-content:center}
+.stage{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);border-top:1px solid var(--line);padding-top:18px;margin:80px 0 40px;display:flex;justify-content:space-between;gap:12px}
+.stage b{color:var(--blue)}
+.fig{display:grid;grid-template-columns:7fr 4fr;gap:60px;align-items:center;margin-bottom:110px}
+.fig.rev{grid-template-columns:4fr 7fr}
+.fig.rev .img{order:2}
+.img{border-radius:var(--r);overflow:hidden;cursor:zoom-in;position:relative;aspect-ratio:4/5;max-height:82vh;width:100%;justify-self:center}
+.img.l{aspect-ratio:16/10}
+.img img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.img:hover img{transform:scale(1.06)}
+.img::after{content:"";position:absolute;inset:0;border-radius:var(--r);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);pointer-events:none}
+.num{font-size:5.5rem;font-weight:200;color:var(--blue);line-height:1;letter-spacing:-.05em}
+.fig h3{font-size:2rem;font-weight:700;letter-spacing:-.02em;margin:6px 0 14px}
+.fig p{font-size:15px}
+/* ═════ CURADURÍA ═════ */
+.crit{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:30px}
+.crit div{border-left:2px solid var(--blue);padding:4px 0 4px 22px}
+.crit h4{font-weight:600;font-size:1.05rem;margin-bottom:6px}
+.crit p{font-size:14px;margin:0}
+/* ═════ REFLEXIÓN / DEFENSA ═════ */
+.final{text-align:center}
+.final p{margin:0 auto 18px}
+.final p.big{font-size:clamp(1.5rem,3.2vw,2.6rem);color:var(--white);font-weight:200;line-height:1.25;max-width:880px;letter-spacing:-.02em;margin:30px auto 40px}
+.final .big b{color:var(--blue);font-weight:600}
+details{border-top:1px solid var(--line);padding:22px 0;max-width:820px}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;font-weight:600;font-size:1.1rem;display:flex;justify-content:space-between;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--blue);font-size:1.5rem;line-height:1;transition:.3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:14px 0 0;max-width:720px;font-size:15px}
+footer{padding:50px 20px;text-align:center;font-size:12px;letter-spacing:.14em;color:rgba(244,244,244,.35);text-transform:uppercase;border-top:1px solid var(--line);position:relative;overflow:hidden}
+footer::before{content:"";position:absolute;left:50%;top:0;width:520px;height:140px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(84,159,228,.18),transparent 70%)}
+/* ═════ LIGHTBOX ═════ */
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.94);backdrop-filter:blur(14px);z-index:99;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.3s;cursor:zoom-out}
+#lb.o{opacity:1;pointer-events:all}
+#lb img{width:auto;height:auto;max-width:92vw;max-height:90vh;object-fit:contain;border-radius:10px}
+/* ═════ REVEAL ═════ */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s ease}
+.rv.v{opacity:1;transform:none}
+/* ═════ RESPONSIVE ═════ */
+@media(max-width:980px){
+.two,.cols,.fig,.fig.rev{grid-template-columns:1fr;gap:36px}
+.fig.rev .img{order:0}
+.refs,.crit{grid-template-columns:1fr}
+.photo{max-width:440px}
+section{padding:90px 0}
+.num{font-size:3.8rem}
+.fig{margin-bottom:80px}
+}
+@media(max-width:760px){
+.wrap{padding:0 22px}
+nav{padding:14px 22px}
+.burger{display:block}
+nav ul{position:fixed;inset:0;background:rgba(10,10,10,.97);flex-direction:column;align-items:center;justify-content:center;gap:30px;transform:translateX(100%);transition:.4s}
+nav ul.o{transform:none}
+nav li a{font-size:16px}
+.cover{padding-bottom:60px}
+.stage{flex-direction:column;gap:4px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <b>EG</b>
+  <ul id="menu">
+    <li><a href="#portada">Portada</a></li>
+    <li><a href="#declaracion">Declaración</a></li>
+    <li><a href="#origen">Origen</a></li>
+    <li><a href="#referentes">Referentes</a></li>
+    <li><a href="#serie">Serie</a></li>
+    <li><a href="#reflexion">Reflexión</a></li>
+    <li><a href="#defensa">Defensa</a></li>
+  </ul>
+  <button class="burger" id="bg" aria-label="Menú">☰</button>
+</nav>
+
+<!-- ═════ PÁGINA 1 · PORTADA ═════ -->
+<header class="cover" id="portada">
+  <div class="bg"><img src="images/header.jpeg" alt="Portada del proyecto"></div>
+  <div class="glow" style="left:-160px;bottom:-200px"></div>
+  <div class="wrap">
+    <div class="tag">Proyecto Fotográfico de Autor</div>
+    <h1>Luz y<br><em>Devoción</em></h1>
+    <p class="sub">Guatemala entre lo sagrado y lo cotidiano: diez fotografías sobre la luz como hilo conductor de la fe, el paisaje y la mirada.</p>
+    <div class="meta">
+      <span>Autor<b>Edgar G.</b></span>
+      <span>Disciplina<b>Fotografía &amp; Diseño visual</b></span>
+      <span>Serie<b>10 fotografías</b></span>
+    </div>
+    <a href="#serie" class="btn">Ver la serie →</a>
+  </div>
+</header>
+
+<!-- ═════ PÁGINA 2 · DECLARACIÓN DEL ARTISTA ═════ -->
+<section id="declaracion">
+  <div class="glow" style="right:-200px;top:10%"></div>
+  <div class="wrap two">
+    <div class="photo rv"><img src="images/edgar.jpg" alt="Edgar G., autor" style="object-position:center top"></div>
+    <div class="rv">
+      <div class="tag">02 · Declaración del artista</div>
+      <h2>Fotografiar es <em>escuchar</em> la luz.</h2>
+      <p class="quote">“Mi trabajo busca detener instantes donde lo sagrado y lo cotidiano comparten la misma luz. No retrato objetos: retrato la atención, la espera y la fe de un lugar y su gente.”</p>
+      <p>Desde la fotografía y el diseño gráfico construyo imágenes con intención: composición limpia, color expresivo y un lenguaje cinematográfico que invite al espectador a quedarse un momento más.</p>
+      <span class="sign">— Edgar G., Guatemala</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ PÁGINA 3 · INTRODUCCIÓN Y ORIGEN ═════ -->
+<section id="origen" class="alt">
+  <div class="wrap">
+    <div class="tag rv">03 · Introducción y origen del proyecto</div>
+    <h2 class="rv">De dónde <em>nace</em> la serie</h2>
+    <div class="cols rv">
+      <div>
+        <p>Durante el semestre fotografié procesiones, plazas, retratos y fauna. Al revisar el archivo completo noté algo en común: en todas las imágenes la luz —natural, de velas, de ciudad o de feria— es quien organiza el sentido.</p>
+        <p>Así nació <b class="w">Luz y Devoción</b>: un recorrido que parte del umbral de una ciudad histórica, atraviesa la fe popular, se acerca a las personas y a la vida natural, y termina con la luz convertida en movimiento.</p>
+      </div>
+      <div>
+        <p><b class="w">Concepto central.</b> La devoción no vive solo en los templos: aparece en la forma de mirar, de esperar y de celebrar. La luz es el lenguaje que la hace visible.</p>
+        <p><b class="w">Pregunta guía.</b> ¿Cómo cambia la luz lo que entendemos por sagrado cuando pasa de la procesión a la plaza, al retrato y a la feria?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ PÁGINA 4 · INVESTIGACIÓN Y REFERENTES ═════ -->
+<section id="referentes">
+  <div class="wrap">
+    <div class="tag rv">04 · Investigación y referentes artísticos</div>
+    <h2 class="rv">Mirar a quienes <em>miraron</em> antes</h2>
+    <div class="refs">
+      <div class="ref rv"><small>Guatemala</small><h3>Luis González Palma</h3><p>Su fotografía mezcla identidad, imaginería religiosa y dramatismo barroco. Me enseñó que lo sagrado puede construirse con luz y encuadre.</p></div>
+      <div class="ref rv"><small>Documental</small><h3>Sebastião Salgado</h3><p>Referente del contraste, la dignidad y la escala humana. Influye en mi manera de componer y de editar con profundidad tonal.</p></div>
+      <div class="ref rv"><small>Color &amp; retrato</small><h3>Steve McCurry</h3><p>Su uso del color y la mirada directa inspira mis retratos: presencia, fondo limpio y un punto de color que guía el ojo.</p></div>
+    </div>
+    <p class="rv" style="margin-top:30px;max-width:720px">También investigué la tradición de las procesiones de Semana Santa en Guatemala —andas, alfombras, jacarandas y luz de tarde— como fuente visual y cultural de la serie.</p>
+  </div>
+</section>
+
+<!-- ═════ PÁGINAS 5–14 · SERIE SECUENCIADA ═════ -->
+<section id="serie" class="alt">
+  <div class="glow" style="left:-250px;top:20%"></div>
+  <div class="wrap">
+    <div class="intro-s rv">
+      <div class="tag">05 en adelante · Serie fotográfica</div>
+      <h2>Diez imágenes,<br><em>una secuencia</em></h2>
+      <p>De 42 fotografías del semestre seleccioné 10, organizadas en tres momentos: <b class="w">inicio</b>, <b class="w">desarrollo</b> y <b class="w">final</b>.</p>
+    </div>
+
+    <div class="stage rv"><b>I · Inicio</b><span>Presentación del concepto</span></div>
+    <article class="fig rv">
+      <div class="img l"><img src="images/paisaje-3.jpeg" alt="Arco de Antigua de noche" loading="lazy"></div>
+      <div><div class="num">01</div><h3>Umbral</h3><p>El arco de Antigua iluminado de noche funciona como puerta de entrada: aquí comienza el recorrido y se presenta la luz como protagonista.</p></div>
+    </article>
+    <article class="fig rev rv">
+      <div class="img l"><img src="images/paisaje-1.jpeg" alt="Fuente iluminada en la plaza" loading="lazy"></div>
+      <div><div class="num">02</div><h3>Plaza</h3><p>La luz de ciudad convierte la plaza en un altar cívico. Establece el escenario donde ocurrirá lo sagrado.</p></div>
+    </article>
+
+    <div class="stage rv"><b>II · Desarrollo</b><span>Profundización del discurso visual</span></div>
+    <article class="fig rv">
+      <div class="img"><img src="images/sacra-2.jpg" alt="Procesión entre jacarandas" loading="lazy"></div>
+      <div><div class="num">03</div><h3>Procesión</h3><p>Las andas avanzan bajo las jacarandas: la fe se integra al paisaje. El morado conecta tradición y naturaleza.</p></div>
+    </article>
+    <article class="fig rev rv">
+      <div class="img"><img src="images/sacra-3.jpg" alt="Jesús Nazareno" loading="lazy"></div>
+      <div><div class="num">04</div><h3>Nazareno</h3><p>Primer plano de la imagen. El encuadre cerrado y los dorados sobre fondo oscuro acercan al espectador a la devoción.</p></div>
+    </article>
+    <article class="fig rv">
+      <div class="img"><img src="images/sacra-5.jpg" alt="Virgen Dolorosa" loading="lazy"></div>
+      <div><div class="num">05</div><h3>Dolorosa</h3><p>El rojo y el dorado marcan el punto más intenso de la serie: ternura y dolor en una sola imagen.</p></div>
+    </article>
+    <article class="fig rev rv">
+      <div class="img"><img src="images/sacra-7.jpg" alt="Cristo con cruz bajo cielo azul" loading="lazy"></div>
+      <div><div class="num">06</div><h3>Cruz y cielo</h3><p>El cielo abierto libera la tensión de las imágenes anteriores y prepara el paso de lo sagrado a las personas.</p></div>
+    </article>
+    <article class="fig rv">
+      <div class="img"><img src="images/retrato-10.jpg" alt="Retrato entre jacarandas" loading="lazy"></div>
+      <div><div class="num">07</div><h3>Mirada</h3><p>Retrato íntimo con las mismas jacarandas de la procesión: la devoción cotidiana aparece en la calma de una persona.</p></div>
+    </article>
+    <article class="fig rev rv">
+      <div class="img"><img src="images/retrato-5.jpeg" alt="Retrato urbano con sombrilla" loading="lazy"></div>
+      <div><div class="num">08</div><h3>Presencia</h3><p>Una figura contemporánea y relajada: la identidad actual dialoga con la tradición vista antes.</p></div>
+    </article>
+    <article class="fig rv">
+      <div class="img"><img src="images/vida-4.jpg" alt="Tigre blanco" loading="lazy"></div>
+      <div><div class="num">09</div><h3>Instinto</h3><p>La vida natural introduce otra forma de atención: silenciosa, alerta, sin ritual. Cierra la exploración del desarrollo.</p></div>
+    </article>
+
+    <div class="stage rv"><b>III · Final</b><span>Conclusión y reflexión artística</span></div>
+    <article class="fig rev rv">
+      <div class="img l"><img src="images/paisaje-4.jpeg" alt="Rueda de la fortuna en larga exposición" loading="lazy"></div>
+      <div><div class="num">10</div><h3>Movimiento</h3><p>La larga exposición convierte la feria en círculos de luz. Cierra la secuencia: la luz que guió la serie se vuelve tiempo y celebración.</p></div>
+    </article>
+  </div>
+</section>
+
+<!-- ═════ CURADURÍA Y JUSTIFICACIÓN ═════ -->
+<section id="curaduria">
+  <div class="wrap">
+    <div class="tag rv">Justificación · Curaduría y secuencia</div>
+    <h2 class="rv">Por qué estas <em>diez</em></h2>
+    <div class="crit rv">
+      <div><h4>Conceptual</h4><p>Cada imagen responde a la pregunta guía: luz, fe y vida cotidiana. Se descartaron fotos repetidas o ajenas al discurso.</p></div>
+      <div><h4>Estético</h4><p>Paleta coherente (morados, dorados, azules nocturnos), composiciones limpias y alternancia entre planos abiertos y cerrados.</p></div>
+      <div><h4>Técnico</h4><p>Nitidez, exposición controlada, manejo de luz difícil (noche, contraluz) y edición con tono y color consistentes.</p></div>
+    </div>
+    <p class="rv" style="margin-top:40px;max-width:720px"><b class="w">Orden de la secuencia.</b> Va de lo amplio a lo íntimo y de nuevo a lo amplio: ciudad → fe → personas → naturaleza → luz en movimiento. Busco que el espectador pase de observar un lugar a sentir una atmósfera.</p>
+  </div>
+</section>
+
+<!-- ═════ PÁGINA FINAL · REFLEXIÓN ═════ -->
+<section id="reflexion" class="alt final">
+  <div class="glow" style="left:50%;bottom:-300px;transform:translateX(-50%)"></div>
+  <div class="wrap">
+    <div class="tag rv">Final · Reflexión del autor</div>
+    <p class="big rv">Este proyecto me enseñó que una serie no se hace sumando fotos, sino <b>decidiendo qué dejar fuera</b>. La luz fue el hilo; la devoción, la forma de mirar.</p>
+    <p class="rv">Cierro con la idea de que lo sagrado no pertenece solo a un lugar: se encuentra donde alguien se detiene a mirar con atención. Gracias por recorrer la serie.</p>
+    <br><a href="#portada" class="btn rv">Volver al inicio ↑</a>
+  </div>
+</section>
+
+<!-- ═════ DEFENSA DEL PORTAFOLIO ═════ -->
+<section id="defensa">
+  <div class="wrap">
+    <div class="tag rv">Presentación y defensa</div>
+    <h2 class="rv">Cinco <em>preguntas</em> clave</h2>
+    <div class="rv">
+      <details><summary>1. ¿Cuál es el concepto central?</summary><p>La luz como lenguaje de la devoción: lo sagrado y lo cotidiano se encuentran en la misma atmósfera visual.</p></details>
+      <details><summary>2. ¿Por qué seleccioné esas fotografías?</summary><p>Por su fuerza conceptual, coherencia de color y calidad técnica. Eliminé repeticiones y las imágenes que no aportaban al discurso.</p></details>
+      <details><summary>3. ¿Qué criterio usé para la secuencia?</summary><p>Un recorrido de lo amplio a lo íntimo y de regreso: ciudad, fe, personas, naturaleza y luz en movimiento, en tres actos.</p></details>
+      <details><summary>4. ¿Qué decisiones estéticas y técnicas tomé?</summary><p>Estética cinematográfica, paleta controlada, encuadres cerrados para lo devocional y abiertos para el paisaje; larga exposición y edición tonal consistente.</p></details>
+      <details><summary>5. ¿Qué deseo comunicar al espectador?</summary><p>Que la fe y la belleza están en la atención: basta detenerse a mirar para descubrir lo sagrado en lo cotidiano.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Edgar G. · Luz y Devoción · Proyecto Fotográfico de Autor</footer>
+
+<div id="lb"><img alt=""></div>
+
+<script>
+/* Navbar con blur al hacer scroll */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>40),{passive:true});
+/* Menú hamburguesa */
+const menu=document.getElementById('menu');
+document.getElementById('bg').onclick=()=>menu.classList.toggle('o');
+menu.querySelectorAll('a').forEach(a=>a.onclick=()=>menu.classList.remove('o'));
+/* Fade-in al hacer scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+/* Lightbox */
+const lb=document.getElementById('lb'),li=lb.querySelector('img');
+document.querySelectorAll('.img').forEach(d=>d.onclick=()=>{li.src=d.querySelector('img').currentSrc;lb.classList.add('o')});
+lb.onclick=()=>lb.classList.remove('o');
+addEventListener('keydown',e=>e.key==='Escape'&&lb.classList.remove('o'));
+</script>
+</body>
+</html>
